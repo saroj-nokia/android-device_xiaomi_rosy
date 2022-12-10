@@ -1,0 +1,11 @@
+typeattribute ueventd data_between_core_and_vendor_violators;
+
+allow ueventd self:capability kill;
+allow ueventd self:capability sys_nice;
+
+allow ueventd fpc_sysfs:file rw_file_perms;
+allow ueventd spidev_file:chr_file { create getattr setattr };
+
+r_dir_file(ueventd, persist_file)
+
+r_dir_file(ueventd, wifi_vendor_data_file)

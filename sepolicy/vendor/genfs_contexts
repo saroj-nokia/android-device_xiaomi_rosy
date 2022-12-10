@@ -1,0 +1,37 @@
+# Boot reason
+genfscon proc /sys/kernel/boot_reason   u:object_r:proc_boot_reason:s0
+
+# DT2W
+genfscon proc /gesture/onoff		u:object_r:proc_gesture:s0
+
+# Power
+genfscon debugfs /sched_features                              u:object_r:debugfs_sched_features:s0
+genfscon proc    /sys/kernel/sched_autogroup_enabled          u:object_r:proc_sysctl_autogroup:s0
+genfscon proc    /sys/kernel/sched_boost                      u:object_r:proc_sysctl_schedboost:s0
+genfscon sysfs   /devices/platform/soc/soc:qcom,cpubw         u:object_r:sysfs_msm_subsys:s0
+genfscon sysfs   /devices/platform/soc/soc:qcom,gpubw         u:object_r:sysfs_msm_subsys:s0
+#genfscon sysfs   /devices/platform/soc/soc:qcom,mincpubw      u:object_r:sysfs_msm_subsys:s0
+
+# /proc
+genfscon proc /last_kmsg                              u:object_r:proc_last_kmsg:s0
+genfscon proc /sys/vm/swappiness                      u:object_r:proc_swap:s0
+
+# Rmt
+genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
+
+# RTC
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.qcom,spmi:qcom,pm8953@0:qcom,pm8953_rtc/rtc	u:object_r:sysfs_rtc:s0
+
+# /sys
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00			u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-01			u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02			u:object_r:sysfs_battery_supply:s0
+#genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03			u:object_r:sysfs_battery_supply:s0
+
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.qcom,spmi:qcom,pm8953@0:vadc@3400        u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000.qcom,spmi:qcom,pmi8940@2:vadc@3100       u:object_r:sysfs_battery_supply:s0
+
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-01/200f000.qcom,spmi:qcom,pm8953@1:analog-codec@f000/msm_digital_codec      u:object_r:sysfs_battery_supply:s0
+
+# Vibrator
+genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8940@3:qcom,haptics@c000/leds/vibrator	u:object_r:sysfs_leds:s0
