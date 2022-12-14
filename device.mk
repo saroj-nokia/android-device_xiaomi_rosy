@@ -94,7 +94,6 @@ PRODUCT_COPY_FILES += \
 # ANT
 PRODUCT_PACKAGES += \
     AntHalService \
-    com.dsi.ant.antradio_library \
     libantradio
 
 # Audio
@@ -109,11 +108,8 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.primary.msm8953:32 \
     audio.r_submix.default \
-    audio.usb.default 
-    
-PRODUCT_PACKAGES += \
-    libaudiopreprocessing \
-    libaudioroute \
+    audio.usb.default \
+    sound_trigger.primary.msm8953:32 \
     libaacwrapper \
     libaudio-resampler \
     libnbaio \
@@ -124,9 +120,10 @@ PRODUCT_PACKAGES += \
     libsndmonitor \
     libspkrprot \
     libtinyalsa \
-    libtinycompress 
-    
-    #libtinyxml
+    libtinycompress \
+    libtinyxml
+
+
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -149,6 +146,10 @@ PRODUCT_COPY_FILES += \
  PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.common@1.0 \
@@ -159,16 +160,9 @@ PRODUCT_PACKAGES += \
     camera.msm8953 \
     libfui \
     libui_shim \
-    Snap \
     camera.device@3.2-impl \
-    vendor.qti.hardware.camera.device@1.0
-
-
-PRODUCT_PACKAGES += \
-    libstdc++.vendor
-
-PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0.vendor
+    vendor.qti.hardware.camera.device@1.0 \
+    Aperture
 
 
 # Cgroup and task_profiles
@@ -315,11 +309,9 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media/media_codecs_performance_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_v1.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs_vendor_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_v1.xml \
-    $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
@@ -486,13 +478,14 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-PRODUCT_COPY_FILES += \
+RODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/persist/WCNSS_qcom_wlan.nv.bin
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_SYSTEM)/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+    
 # Wi-Fi Display
 PRODUCT_PACKAGES += \
     libdisplayconfig.qti \
