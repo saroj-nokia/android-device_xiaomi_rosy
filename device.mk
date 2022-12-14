@@ -94,6 +94,7 @@ PRODUCT_COPY_FILES += \
 # ANT
 PRODUCT_PACKAGES += \
     AntHalService \
+    com.dsi.ant.antradio_library \
     libantradio
 
 # Audio
@@ -122,6 +123,26 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     libtinycompress \
     libtinyxml
+
+#PRODUCT_PACKAGES += \
+#    audio.bluetooth.default \
+#    audio.primary.msm8953:32 \
+#    audio.r_submix.default \
+#    audio.usb.default \
+#    libaudiopreprocessing \
+#    libaudioroute \
+#    libaacwrapper \
+#    libaudio-resampler \
+#    libnbaio \
+#    libhfp \
+#    libqcompostprocbundle \
+#    libqcomvisualizer \
+#    libqcomvoiceprocessing \
+#    libsndmonitor \
+#    libspkrprot \
+#    libtinyalsa \
+#    libtinycompress \
+#    libtinyxml
 
 
 
