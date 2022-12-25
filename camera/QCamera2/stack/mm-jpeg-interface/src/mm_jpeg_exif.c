@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -376,6 +376,13 @@ int process_sensor_data(cam_sensor_params_t *p_sensor_params,
     LOGE(": Error adding Exif Entry");
   }
 
+  /* F Number */
+  val_rat.num = (uint32_t)(p_sensor_params->f_number * 100);
+  val_rat.denom = 100;
+  rc = addExifEntry(exif_info, EXIFTAGTYPE_F_NUMBER, EXIF_RATIONAL, 1, &val_rat);
+  if (rc) {
+    LOGE(": Error adding Exif Entry");
+  }
   return rc;
 }
 
@@ -414,12 +421,13 @@ int process_3a_data(cam_3a_params_t *p_3a_params, QOMX_EXIF_INFO *exif_info)
   if (p_3a_params->exp_time <= 0.0f) {
     val_rat.num = 0;
     val_rat.denom = 0;
-  } else if (p_3a_params->exp_time < 1.0f) {
+  } else
+    if (p_3a_params->exp_time <= 1.0f) {
+    val_rat.num = (uint32_t)p_3a_params->exp_time;
+    val_rat.denom = 1;
+  } else {
     val_rat.num = 1;
     val_rat.denom = ROUND(1.0/p_3a_params->exp_time);
-  } else {
-    val_rat.num = ROUND(p_3a_params->exp_time);
-    val_rat.denom = 1;
   }
   LOGD("numer %d denom %d %zd", val_rat.num, val_rat.denom,
     sizeof(val_rat) / (8));
@@ -557,34 +565,10 @@ int process_meta_data(metadata_buffer_t *p_meta, QOMX_EXIF_INFO *exif_info,
         p_sensor_params = *l_sensor_params;
         is_sensor_meta_valid = true;
       }
-
-      IF_META_AVAILABLE(int32_t, flash_mode, CAM_INTF_PARM_LED_MODE, p_meta) {
-        p_sensor_params.flash_mode = *flash_mode;
-      } else {
-        LOGE("Cannot extract flash mode value");
-      }
-
-      IF_META_AVAILABLE(int32_t, flash_state, CAM_INTF_META_FLASH_STATE, p_meta) {
-        p_sensor_params.flash_state = (cam_flash_state_t) *flash_state;
-      } else {
-        LOGE("Cannot extract flash state value");
-      }
     } else {
       /* HAL V3 */
-      IF_META_AVAILABLE(cam_3a_params_t, l_3a_params, CAM_INTF_META_AEC_INFO,
-          p_meta) {
-        p_3a_params = *l_3a_params;
-        is_3a_meta_valid = true;
-      }
-
       IF_META_AVAILABLE(int32_t, iso, CAM_INTF_META_SENSOR_SENSITIVITY, p_meta) {
         p_3a_params.iso_value= *iso;
-#ifndef USE_HAL_3_3
-        IF_META_AVAILABLE(int32_t, ispSensitivity, CAM_INTF_META_ISP_SENSITIVITY,
-            p_meta) {
-          p_3a_params.iso_value= (*iso)*(*ispSensitivity)/100;
-      }
-#endif
       } else {
         LOGE("Cannot extract Iso value");
       }
@@ -610,7 +594,7 @@ int process_meta_data(metadata_buffer_t *p_meta, QOMX_EXIF_INFO *exif_info,
         LOGE("Cannot extract Aperture value");
       }
 
-      IF_META_AVAILABLE(int32_t, flash_mode, CAM_INTF_PARM_LED_MODE, p_meta) {
+      IF_META_AVAILABLE(uint32_t, flash_mode, CAM_INTF_META_FLASH_MODE, p_meta) {
         p_sensor_params.flash_mode = *flash_mode;
       } else {
         LOGE("Cannot extract flash mode value");

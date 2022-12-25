@@ -91,9 +91,9 @@ void set_ro_product_prop(const std::string& prop, const std::string& value) {
 };
 
 void vendor_load_properties() {
-  std::string region;
+  std::string region = GetProperty("ro.boot.hwc", "");;
   std::string hardware_revision;
-  region = GetProperty("ro.boot.hwc", "GLOBAL");
+  //region = GetProperty("ro.boot.hwc", "GLOBAL");
   hardware_revision = GetProperty("ro.boot.hwversion", "UNKNOWN");
 
   std::string model;
@@ -127,4 +127,6 @@ void vendor_load_properties() {
   property_override("ro.boot.hardware.revision", hardware_revision.c_str());
 
   load_dalvikvm_properties();
+
+
 }

@@ -114,7 +114,7 @@
 #define MAX_INFLIGHT_HFR_REQUESTS (48)
 #define MIN_INFLIGHT_HFR_REQUESTS (40)
 
-#define QCAMERA_DUMP_FRM_LOCATION "/data/misc/camera/"
+#define QCAMERA_DUMP_FRM_LOCATION "/data/vendor/qcam/"
 #define QCAMERA_MAX_FILEPATH_LENGTH 64
 
 #define LIKELY(x)       __builtin_expect((x), true)
@@ -1244,12 +1244,10 @@ typedef struct {
     uint32_t frame_id;                         /* frame index of which faces are detected */
     uint8_t num_faces_detected;                /* number of faces detected */
     cam_face_detection_info_t faces[MAX_ROI];  /* detailed information of faces detected */
-    int xiaomi_01[40];
     qcamera_face_detect_type_t fd_type;        /* face detect for preview or snapshot frame*/
     cam_dimension_t fd_frame_dim;              /* frame dims on which fd is applied */
     uint8_t update_flag;                       /* flag to inform whether HAL needs to send cb
                                                 * to app or not */
-    volatile char xiaomi_02[3];
 } cam_face_detection_data_t;
 
 // definition of composite face detection data
@@ -1467,7 +1465,6 @@ typedef enum {
 typedef struct {
   uint32_t is_hdr_scene;
   float    hdr_confidence;
-  volatile uint32_t xiaomi_02;
 } cam_asd_hdr_scene_data_t;
 
 typedef struct {
@@ -1479,7 +1476,9 @@ typedef struct {
 typedef struct {
   cam_auto_scene_t      detected_scene;
   uint8_t               max_n_scenes;
-  cam_asd_scene_info_t  scene_info[S_MAX];
+//  xiaomi added 48 custom auto scenes or some other field with total size of 576 bytes
+  cam_asd_scene_info_t  scene_info[S_MAX+48];
+//  volatile char         xiaomi_reserved1[576];
 } cam_asd_decision_t;
 
 
@@ -1530,7 +1529,6 @@ typedef struct {
     int32_t est_snap_iso_value;
     uint32_t est_snap_luma;
     uint32_t est_snap_target;
-    volatile char xiaomi_05[8];
 } cam_3a_params_t;
 
 typedef struct {
@@ -2156,7 +2154,6 @@ typedef enum {
     /* parameters added for related cameras */
     /* fetch calibration info for related cam subsystem */
     CAM_INTF_PARM_RELATED_SENSORS_CALIBRATION,
-    XIAOMI_01,
     /* focal length ratio info */
     CAM_INTF_META_AF_FOCAL_LENGTH_RATIO,
     /* crop for binning & FOV adjust */
@@ -2239,13 +2236,6 @@ typedef enum {
     CAM_INTF_META_SPOT_LIGHT_DETECT,
     /* HAL based HDR*/
     CAM_INTF_PARM_HAL_BRACKETING_HDR,
-    XIAOMI_02,
-    XIAOMI_03,
-    XIAOMI_04,
-    XIAOMI_05,
-    XIAOMI_06,
-    XIAOMI_07,
-    XIAOMI_08,
     CAM_INTF_PARM_MAX
 } cam_intf_parm_type_t;
 

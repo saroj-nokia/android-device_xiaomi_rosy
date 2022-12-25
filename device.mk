@@ -19,6 +19,10 @@ $(call inherit-product, vendor/xiaomi/rosy/rosy-vendor.mk)
 TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOARD_SUFFIX := _64
 
+#21 December
+PRODUCT_BOARD_PLATFORM := msm8953
+PRODUCT_USES_QCOM_HARDWARE := true
+
 # Apex
 OVERRIDE_PRODUCT_COMPRESSED_APEX := false
 OVERRIDE_TARGET_FLATTEN_APEX := true
@@ -29,7 +33,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/Snap
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -59,8 +62,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
-    frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
@@ -102,7 +103,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio-impl:32 \
+    android.hardware.bluetooth.audio@2.0-impl:32 \
     android.hardware.soundtrigger@2.1-impl:32
 
 PRODUCT_PACKAGES += \
@@ -159,17 +160,23 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
 
-# Bluetooth
- PRODUCT_PACKAGES += \
-    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor 
+# Binder
+PRODUCT_PACKAGES += \
+    libhwbinder \
+    libhwbinder.vendor
 
- PRODUCT_PACKAGES += \
+# Bluetooth
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
+
+PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
-
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -181,9 +188,13 @@ PRODUCT_PACKAGES += \
     camera.msm8953 \
     libfui \
     libui_shim \
+    libgui_vendor \
+    libdng_sdk.vendor \
+    libcamera2ndk_vendor \
     camera.device@3.2-impl \
-    vendor.qti.hardware.camera.device@1.0 \
-    Aperture
+    android.frameworks.displayservice@1.0.vendor \
+    vendor.qti.hardware.camera.device@1.0
+
 
 
 # Cgroup and task_profiles
@@ -192,8 +203,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # ConfigStore
-PRODUCT_PACKAGES += \
-    disable_configstore
+#PRODUCT_PACKAGES += \
+#    disable_configstore
 
 # ConsumerIr
 PRODUCT_PACKAGES += \
@@ -203,6 +214,17 @@ PRODUCT_PACKAGES += \
 # Data
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
+
+# 21 December
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.1.vendor \
+    android.hardware.neuralnetworks@1.2.vendor \
+    android.hardware.neuralnetworks@1.3.vendor
+
+# Dex
+#PRODUCT_DEXPREOPT_SPEED_APPS += \
+#    SystemUI 
+
 
 # Display
 PRODUCT_PACKAGES += \
@@ -222,14 +244,14 @@ PRODUCT_PACKAGES += \
     vendor.display.config@2.0
 
 # DRM
-#PRODUCT_PACKAGES += \
-#    android.hardware.drm@1.0-impl \
-#    android.hardware.drm@1.0-service \
-#    android.hardware.drm@1.4.vendor \
-#    android.hardware.drm-service.clearkey
-
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.4.vendor \
     android.hardware.drm-service.clearkey
+
+#PRODUCT_PACKAGES += \
+#    android.hardware.drm-service.clearkey
 
 # FM
 PRODUCT_PACKAGES += \
