@@ -193,7 +193,8 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     camera.device@3.2-impl \
     android.frameworks.displayservice@1.0.vendor \
-    vendor.qti.hardware.camera.device@1.0
+    vendor.qti.hardware.camera.device@1.0 \
+    Aperture
 
 
 
@@ -222,8 +223,8 @@ PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
 
 # Dex
-#PRODUCT_DEXPREOPT_SPEED_APPS += \
-#    SystemUI 
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI 
 
 
 # Display
@@ -245,13 +246,9 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
-    android.hardware.drm@1.4.vendor \
-    android.hardware.drm-service.clearkey
+    android.hardware.drm-service.clearkey \
+    android.hardware.drm@1.4.vendor
 
-#PRODUCT_PACKAGES += \
-#    android.hardware.drm-service.clearkey
 
 # FM
 PRODUCT_PACKAGES += \
