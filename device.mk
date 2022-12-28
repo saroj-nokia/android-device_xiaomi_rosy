@@ -187,14 +187,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6 \
     camera.msm8953 \
     libfui \
-    libui_shim \
-    libgui_vendor \
-    libdng_sdk.vendor \
-    libcamera2ndk_vendor \
+    Snap \
     camera.device@3.2-impl \
-    android.frameworks.displayservice@1.0.vendor \
-    vendor.qti.hardware.camera.device@1.0 \
-    Aperture
+    vendor.qti.hardware.camera.device@1.0 
 
 
 
@@ -251,9 +246,9 @@ PRODUCT_PACKAGES += \
 
 
 # FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+#PRODUCT_PACKAGES += \
+#    FMRadio \
+#    libfmjni
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -268,6 +263,8 @@ PRODUCT_PACKAGES += \
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service \
     android.hardware.gatekeeper@1.0.vendor
 
 # GAPPS
@@ -286,6 +283,7 @@ PRODUCT_COPY_FILES += \
 # Health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
     
     # Healthd
@@ -303,8 +301,7 @@ PRODUCT_PACKAGES += \
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
-    ims_ext_common.xml \
-    libgui_shim
+    ims_ext_common.xml
 
 # IDC
 PRODUCT_COPY_FILES += \
@@ -334,9 +331,9 @@ PRODUCT_COPY_FILES += \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service \
-    android.hardware.gatekeeper@1.0.vendor
+    android.hardware.keymaster@4.0-impl \
+    android.hardware.keymaster@4.0-service \
+    android.hardware.keymaster@4.0.vendor
 
 
 # Light
@@ -412,12 +409,12 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.goodix.sh \
     init.msm.usb.configfs.rc \
-    init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.rosy.rc \
     init.target.rc \
+    init.qcom.post_boot.sh \
     ueventd.qcom.rc
 
 # RIL
@@ -452,7 +449,13 @@ PRODUCT_PACKAGES += WifiOverlay
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
-    libsensorndkbridge
+    android.frameworks.sensorservice@1.0 \
+    android.frameworks.sensorservice@1.0.vendor
+
+PRODUCT_PACKAGES += \
+	libsensorndkbridge \
+	libsensorservice \
+	libsensorservicehidl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
