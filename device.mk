@@ -187,10 +187,11 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6 \
     camera.msm8953 \
     libfui \
-    Snap \
     camera.device@3.2-impl \
     vendor.qti.hardware.camera.device@1.0 
 
+PRODUCT_PACKAGES += \
+    GCamGOPrebuilt
 
 
 # Cgroup and task_profiles

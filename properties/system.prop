@@ -1,0 +1,96 @@
+#Camera
+persist.camera.gyro.disable=0
+persist.camera.mct.debug=0
+persist.camera.iface.logs=0
+persist.camera.imglib.logs=0
+persist.camera.isp.clock.optmz=0
+persist.camera.isp.debug=0
+persist.camera.sensor.debug=0
+persist.camera.stats.test=5
+persist.vendor.camera.display.lmax=1280x720
+persist.vendor.camera.display.umax=1920x1080
+persist.vendor.qti.telephony.vt_cam_interface=2
+persist.camera.HAL3.enabled=1
+
+#Display
+debug.egl.hw=0
+debug.enable.sglscale=1
+debug.gralloc.enable_fb_ubwc=1
+debug.mdpcomp.logs=0
+debug.sf.enable_hwc_vds=1
+debug.sf.hw=0
+debug.sf.latch_unsignaled=1
+debug.sf.recomputecrop=0
+debug.sf.disable_backpressure=1
+
+#Fuse
+
+# Fm
+ro.fm.transmitter=false
+
+# Frp
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+
+# Fingerprint
+persist.qfp=false
+
+#GPS
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+
+#IMS
+persist.vendor.ims.disableIMSLogs=1
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableDebugDataPathLogs=1
+persist.vendor.ims.disableDebugLogs=1
+persist.vendor.ims.disableSigHandler=1
+persist.vendor.ims.disableQXDMLogs=1
+
+# iorapd
+ro.iorapd.enable=false
+
+#LMKD
+ro.config.low_ram=false
+ro.lmk.log_stats=true
+ro.lmk.use_minfree_levels=true
+
+
+# Tcp
+net.tcp.2g_init_rwnd=10
+
+# USAP
+persist.device_config.runtime_native.usap_pool_enabled=true
+
+#RIL
+
+#Sensors
+# SurfaceFlinger
+ro.surface_flinger.protected_contents=true
+ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+ro.surface_flinger.max_virtual_display_dimension=4096
+ro.surface_flinger.vsync_event_phase_offset_ns=2000000
+ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+
+# Shutdown
+ro.build.shutdown_timeout=2
+
+# System
+persist.sys.binary_xml=false
+
+# BPF
+ro.kernel.ebpf.supported=true
+
+# Camera
+camera.lowpower.record.enable=1
+media.camera.ts.monotonic=1
+vidc.enc.dcvs.extra-buff-count=2
+
+# Charger
+ro.charger.disable_init_blank=true
+ro.charger.enable_suspend=true
+
+# Coresight
+persist.debug.coresight.config=stm-events
+

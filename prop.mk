@@ -79,29 +79,29 @@ vendor.audio.feature.wsa.enable=true \
 vendor.audio.read.wsatz.type=true
 
 # Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-bluetooth.hfp.client=1 \
-vendor.qcom.bluetooth.soc=smd \
-ro.bluetooth.hfp.ver=1.7 \
-ro.qualcomm.bt.hci_transport=smd
+#PRODUCT_PROPERTY_OVERRIDES += \
+#bluetooth.hfp.client=1 \
+#vendor.qcom.bluetooth.soc=smd \
+#ro.bluetooth.hfp.ver=1.7 \
+#ro.qualcomm.bt.hci_transport=smd
 
 # Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp \
-camera.lowpower.record.enable=1 \
-media.camera.ts.monotonic=1 \
-persist.camera.gyro.disable=0 \
-persist.camera.mct.debug=0 \
-persist.camera.iface.logs=0 \
-persist.camera.imglib.logs=0 \
-persist.camera.isp.clock.optmz=0 \
-persist.camera.isp.debug=0 \
-persist.camera.sensor.debug=0 \
-persist.camera.stats.test=5 \
-persist.vendor.camera.display.lmax=1280x720 \
-persist.vendor.camera.display.umax=1920x1080 \
-persist.vendor.qti.telephony.vt_cam_interface=2 \
-vidc.enc.dcvs.extra-buff-count=2
+#PRODUCT_PROPERTY_OVERRIDES += \
+#camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp \
+#camera.lowpower.record.enable=1 \
+#media.camera.ts.monotonic=1 \
+#persist.camera.gyro.disable=0 \
+#persist.camera.mct.debug=0 \
+#persist.camera.iface.logs=0 \
+#persist.camera.imglib.logs=0 \
+#persist.camera.isp.clock.optmz=0 \
+#persist.camera.isp.debug=0 \
+#persist.camera.sensor.debug=0 \
+#persist.camera.stats.test=5 \
+#persist.vendor.camera.display.lmax=1280x720 \
+#persist.vendor.camera.display.umax=1920x1080 \
+#persist.vendor.qti.telephony.vt_cam_interface=2 \
+#vidc.enc.dcvs.extra-buff-count=2
 
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
