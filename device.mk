@@ -125,25 +125,6 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinyxml
 
-#PRODUCT_PACKAGES += \
-#    audio.bluetooth.default \
-#    audio.primary.msm8953:32 \
-#    audio.r_submix.default \
-#    audio.usb.default \
-#    libaudiopreprocessing \
-#    libaudioroute \
-#    libaacwrapper \
-#    libaudio-resampler \
-#    libnbaio \
-#    libhfp \
-#    libqcompostprocbundle \
-#    libqcomvisualizer \
-#    libqcomvoiceprocessing \
-#    libsndmonitor \
-#    libspkrprot \
-#    libtinyalsa \
-#    libtinycompress \
-#    libtinyxml
 
 
 
@@ -190,8 +171,6 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     vendor.qti.hardware.camera.device@1.0 
 
-PRODUCT_PACKAGES += \
-    GCamGOPrebuilt
 
 
 # Cgroup and task_profiles
