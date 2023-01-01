@@ -464,7 +464,6 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_PACKAGES += \
-    init.qcom.usb.rc \
     init.qcom.usb.sh
 
 PRODUCT_SOONG_NAMESPACES += \
@@ -515,8 +514,8 @@ PRODUCT_PACKAGES += \
     libstagefright_enc_common
 
 # XiaomiParts
-PRODUCT_PACKAGES += \
-    XiaomiParts
+#PRODUCT_PACKAGES += \
+#    XiaomiParts
 
 # GAPPS
 #include vendor/gapps/common/common-vendor.mk
