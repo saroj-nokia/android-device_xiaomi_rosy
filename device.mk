@@ -427,7 +427,7 @@ PRODUCT_PACKAGES += \
    FrameworksResOverlayRosy \
    SettingsOverlayRosy \
    SystemUIOverlayRosy \
-   TetheringConfigOverlayrosy \
+   TetheringConfigOverlayRosy \
    WifiOverlayRosy
 
 
