@@ -420,9 +420,16 @@ PRODUCT_BOOT_JARS += telephony-ext
 
 
 # RRO Overlays
-PRODUCT_PACKAGES += TetheringConfigOverlay
+# Runtime Overlays
+PRODUCT_PACKAGES += \
+   ApertureOverlay \
+   BluetoothOverlayRosy \
+   FrameworksResOverlayRosy \
+   SettingsOverlayRosy \
+   SystemUIOverlayRosy \
+   TetheringConfigOverlayrosy \
+   WifiOverlayRosy
 
-PRODUCT_PACKAGES += WifiOverlay
 
 
 # Sensors
