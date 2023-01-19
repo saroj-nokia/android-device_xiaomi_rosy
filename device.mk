@@ -423,7 +423,6 @@ PRODUCT_BOOT_JARS += telephony-ext
 # Runtime Overlays
 PRODUCT_PACKAGES += \
    ApertureOverlay \
-   BluetoothOverlayRosy \
    FrameworksResOverlayRosy \
    SettingsOverlayRosy \
    SystemUIOverlayRosy \
