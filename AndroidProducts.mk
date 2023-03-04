@@ -5,14 +5,14 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_rosy.mk
+    $(LOCAL_DIR)/lineage_rosy.mk
 
 COMMON_BREAKFAST_CHOICES := \
-    aosp_rosy-user \
-    aosp_rosy-userdebug \
-    aosp_rosy-eng
+    lineage_rosy-user \
+    lineage_rosy-userdebug \
+    lineage_rosy-eng
 
 COMMON_LUNCH_CHOICES := \
-    aosp_rosy-user \
-    aosp_rosy-userdebug \
-    aosp_rosy-eng
+    lineage_rosy-user \
+    lineage_rosy-userdebug \
+    lineage_rosy-eng

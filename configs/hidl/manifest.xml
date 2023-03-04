@@ -540,6 +540,6 @@
         <interface>
             <name>IRTPService</name>
             <instance>imsrtpservice</instance>
-        </interface>
-    </hal>
-</manifest>
+	</interface>
+	</hal>
+    	</manifest>

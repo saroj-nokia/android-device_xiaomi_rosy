@@ -95,7 +95,6 @@ PRODUCT_COPY_FILES += \
 # ANT
 PRODUCT_PACKAGES += \
     AntHalService \
-    com.dsi.ant.antradio_library \
     libantradio
 
 # Audio
@@ -147,13 +146,15 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@2.0.vendor
+BOARD_DISABLE_BLUETOOTH := true
 
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0.vendor
+#PRODUCT_PACKAGES += \
+#    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+#    vendor.qti.hardware.btconfigstore@1.0.vendor \
+#    vendor.qti.hardware.btconfigstore@2.0.vendor
+
+#PRODUCT_PACKAGES += \
+#    android.hardware.bluetooth@1.0.vendor
 
 
 PRODUCT_COPY_FILES += \
@@ -267,8 +268,8 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
     
     # Healthd
-PRODUCT_PACKAGES += \
-    chargeonlymode
+#PRODUCT_PACKAGES += \
+#    chargeonlymode
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -311,7 +312,6 @@ PRODUCT_COPY_FILES += \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0-impl \
     android.hardware.keymaster@4.0-service \
     android.hardware.keymaster@4.0.vendor
 
@@ -407,7 +407,6 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.0 \
     android.hardware.secure_element@1.2.vendor \
     librmnetctl \
-    libcnefeatureconfig \
     libxml2 \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
@@ -427,7 +426,7 @@ PRODUCT_PACKAGES += \
    SettingsOverlayRosy \
    SystemUIOverlayRosy \
    TetheringConfigOverlayRosy \
-   WifiOverlayRosy
+   WifiOverlay
 
 
 
