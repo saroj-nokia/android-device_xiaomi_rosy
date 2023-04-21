@@ -43,6 +43,9 @@ TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_GAPPS_ARCH := arm64
 ARROW_GAPPS := true
 
+# MicroG
+WITH_GMS := true
+
 # Inherit vendor gapps.
 #$(call inherit-product, vendor/gapps/common/common-vendor.mk)
 

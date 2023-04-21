@@ -250,6 +250,9 @@ PRODUCT_PACKAGES += \
 
 # GAPPS
 #-include vendor/gapps/common/common-vendor.mk
+# PRODUCT_PACKAGES += \
+#    GmsCore
+
 
 # GPS
 PRODUCT_PACKAGES += \
