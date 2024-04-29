@@ -1,2 +1,5 @@
 # DPM
 persist.vendor.dpm.feature=11
+
+# Recovery
+persist.vendor.recovery_update=true
