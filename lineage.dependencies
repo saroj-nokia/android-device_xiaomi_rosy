@@ -1,8 +1,0 @@
-[
-   {
-      "remote":"pixel-devices-blobs",
-      "branch":"eleven",
-      "repository":"vendor_xiaomi_rosy",
-      "target_path":"vendor/xiaomi/rosy"
-   },
-]
