@@ -198,10 +198,13 @@ ro.lmk.use_minfree_levels=true
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
+debug.stagefright.omx_default_rank.sw-audio=1 \
 av.debug.disable.pers.cache=1 \
 debug.stagefright.omx_default_rank=0 \
 media.msm8956hw=0 \
 media.stagefright.audio.sink=280 \
+mm.enable.sec.smoothstreaming=true \
+vendor.audio.hw.aac.encoder=true \
 vendor.mm.enable.qcom_parser=1048575 \
 media.stagefright.thumbnail.prefer_hw_codecs=true \
 mmp.enable.3g2=true \
