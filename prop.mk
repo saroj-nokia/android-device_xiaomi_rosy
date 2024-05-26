@@ -2,6 +2,9 @@
 # system.prop for rosy
 #
 
+# APEx
+ro.apex.updatable=true
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.config.media_vol_steps=25 \
