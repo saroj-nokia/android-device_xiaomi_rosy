@@ -99,6 +99,9 @@ vendor.qcom.bluetooth.soc=smd \
 ro.bluetooth.hfp.ver=1.7 \
 ro.qualcomm.bt.hci_transport=smd
 
+# Crypto
+ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
